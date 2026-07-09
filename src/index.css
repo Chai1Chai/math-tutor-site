@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400; 
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700; 
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('./assets/fonts/Unbounded-Medium.ttf') format('truetype');
+  font-weight: 500; 
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('./assets/fonts/Unbounded-Bold.ttf') format('truetype');
+  font-weight: 700; 
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Stylo_SHA_0';
+  src: url('./assets/fonts/Stylo_SHA_0.otf') format('opentype');
+  font-weight: 700; 
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Стилизация скроллбара для контейнера карточки */
+
+/* 1. Для Chrome, Safari, Opera и Edge (WebKit/Blink) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Ширина скроллбара */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(22, 48, 96, 0.4); /* Наш темно-синий #163060 с прозрачностью */
+  border-radius: 0 16px 16px 0; /* Округляем углы по правому краю */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #D4EC5B; /* Твой фирменный лаймовый цвет ползунка */
+  border-radius: 20px; /* Делаем ползунок овальным и мягким */
+  border: 2px solid transparent; /* Добавляем микро-отступ, чтобы он смотрелся аккуратнее */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #b8cc47; /* Чуть темнее при наведении, чтобы реагировал на курсор */
+}
+
+/* 2. Для Firefox (использует новые стандартные свойства CSS) */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Делаем его тонким */
+  scrollbar-color: #D4EC5B rgba(22, 48, 96, 0.4); /* [Цвет ползунка] [Цвет дорожки] */
+}
+
