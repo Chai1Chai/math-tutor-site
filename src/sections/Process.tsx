@@ -7,7 +7,7 @@ import telemostIcon from '../assets/images/icons/YandexTelemostLogo.svg';
 import holstIcon from '../assets/images/icons/HolstLogo.svg';
 
 
-import coolCat from '../assets/images/cats/ProcessMainCat.png';
+import coolCat from '../assets/images/cats/ProcessMainCat.webp';
 
 export const Process: React.FC = () => {
   return (

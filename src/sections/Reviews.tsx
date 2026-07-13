@@ -15,15 +15,14 @@ import result2 from '../assets/images/photo/result_aleksey.webp';
 interface VideoReview {
   id: number;
   name: string;
-  badge: string;
   videoUrl: string;
   aspect: 'vertical' | 'horizontal'; // Добавили тип ориентации
 }
 
 const videoReviews: VideoReview[] = [
-  { id: 1, name: "Дарина", badge: "ОГЭ НА «4»", videoUrl: Darina, aspect: 'horizontal' },
-  { id: 2, name: "Леша", badge: "ОГЭ НА «4»", videoUrl: Denis, aspect: 'vertical' },
-  { id: 3, name: "Ксения ", badge: "ЕГЭ БАЗА НА «5»", videoUrl: Ksenia, aspect: 'vertical' },
+  { id: 1, name: "Дарина", videoUrl: Darina, aspect: 'horizontal' },
+  { id: 2, name: "Денис", videoUrl: Denis, aspect: 'vertical' },
+  { id: 3, name: "Ксения ", videoUrl: Ksenia, aspect: 'vertical' },
 ];
 
 export const Reviews: React.FC = () => {
@@ -84,10 +83,8 @@ export const Reviews: React.FC = () => {
               >
                 <video
                   src={review.videoUrl}
-                  autoPlay
-                  loop
+                  preload="metadata"
                   muted
-                  playsInline
                   className="w-full h-full object-cover pointer-events-none"
                 />
                 
@@ -106,9 +103,6 @@ export const Reviews: React.FC = () => {
                 {review.name}
               </span>
               
-              <span className="font-['Montserrat'] font-medium text-[#D4EC5B] text-xs uppercase tracking-wider mt-0.5">
-                {review.badge}
-              </span>
             </div>
           ))}
         </div>
@@ -160,7 +154,7 @@ export const Reviews: React.FC = () => {
 
             <div className="flex flex-col text-center sm:text-left">
               <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 86 баллов</h4>
-              <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кирилла. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
+              <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кириллом. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
             </div>
 
             <div className="hidden sm:block ml-auto text-[#D4EC5B]/40">

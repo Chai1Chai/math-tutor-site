@@ -1,10 +1,10 @@
 import React from 'react';
 
 // Импорты ассетов котиков (названия файлов подгони под свои)
-import catOge from '../assets/images/cats/cat_oge.png'; // Кот в очках
-import catEgeProfile from '../assets/images/cats/cat_ege_profile.png'; // Кот в конфедератке (магистр)
-import catEgeBase from '../assets/images/cats/cat_ege_base.png'; // Кот с калькулятором
-import catUp from '../assets/images/cats/cat_up.png'; // Кот с поднятой лапой
+import catOge from '../assets/images/cats/cat_oge.webp'; // Кот в очках
+import catEgeProfile from '../assets/images/cats/cat_ege_profile.webp'; // Кот в конфедератке (магистр)
+import catEgeBase from '../assets/images/cats/cat_ege_base.webp'; // Кот с калькулятором
+import catUp from '../assets/images/cats/cat_up.webp'; // Кот с поднятой лапой
 
 
 interface ServiceCardProps {

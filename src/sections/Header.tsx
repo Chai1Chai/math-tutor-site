@@ -1,3 +1,4 @@
+import logo from '../assets/images/icons/LOGO.svg';
 import React, { useState } from 'react';
 
 export const Header: React.FC = () => {
@@ -23,12 +24,20 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-[100] w-full bg-[#D4EC5B] text-black shadow-lg">
-      <nav className="relative flex items-center justify-between py-3 px-6 md:px-10 lg:px-16 w-full min-h-[64px]">
+      {/* Сделали блок уже за счет py-1.5 и min-h-[48px] */}
+      <nav className="relative flex items-center justify-between py-1.5 px-6 md:px-10 lg:px-16 w-full min-h-[48px]">
         
-        <div className="flex-1 md:flex-initial"></div>
+        {/* ЛОГОТИП (высота адаптирована под узкую шапку) */}
+        <a 
+          href="#" 
+          onClick={(e) => scrollToSection(e, 'top')} 
+          className="z-10 flex items-center transition-transform active:scale-95"
+        >
+          <img src={logo} alt="Логотип" className="h-7 w-auto md:h-8" />
+        </a>
 
         {/* НАВИГАЦИЯ ДЛЯ ДЕСКТОПА */}
-        <div className="hidden md:flex items-center md:absolute md:left-1/2 md:-translate-x-1/2 gap-4 lg:gap-8 font-['Montserrat'] font-regular text-sm lg:text-base whitespace-nowrap">
+        <div className="hidden md:flex items-center md:absolute md:left-1/2 md:-translate-x-1/2 gap-4 lg:gap-8 font-['Montserrat'] font-regular text-sm lg:text-sm whitespace-nowrap">
           <a href="#" onClick={(e) => scrollToSection(e, 'top')} className="hover:text-[#163060] transition hover:drop-shadow-[0_0_10px_rgba(22,48,96,0.6)] duration-200">Главная</a>
           <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#163060] transition hover:drop-shadow-[0_0_10px_rgba(22,48,96,0.6)] duration-200">Обо мне</a>
           <a href="#process" onClick={(e) => scrollToSection(e, 'process')} className="hover:text-[#163060] transition hover:drop-shadow-[0_0_10px_rgba(22,48,96,0.6)] duration-200">Процесс обучения</a>
@@ -36,10 +45,10 @@ export const Header: React.FC = () => {
           <a href="#reviews" onClick={(e) => scrollToSection(e, 'reviews')} className="hover:text-[#163060] transition hover:drop-shadow-[0_0_10px_rgba(22,48,96,0.6)] duration-200">Отзывы</a>
         </div>
 
-        {/* КНОПКА ЗАПИСАТЬСЯ ДЛЯ ДЕСКТОПА */}
+        {/* КНОПКА ЗАПИСАТЬСЯ ДЛЯ ДЕСКТОПА (py-2 вместо py-2.5 для компактности) */}
         <button 
           onClick={(e) => scrollToSection(e, 'contacts')}
-          className="hidden md:block font-['Montserrat'] font-regular text-sm lg:text-base bg-[#163060] text-white px-8 lg:px-10 py-2.5 rounded-full hover:bg-[#0e2042] transition-colors duration-200 active:scale-95 z-10 ml-auto"
+          className="hidden md:block font-['Montserrat'] font-regular text-sm lg:text-base bg-[#163060] text-white px-8 lg:px-10 py-2 rounded-full hover:bg-[#0e2042] transition-colors duration-200 active:scale-95 z-10 ml-auto"
         >
           Записаться
         </button>
@@ -67,7 +76,7 @@ export const Header: React.FC = () => {
         {/* КНОПКА ЗАПИСАТЬСЯ ВНУТРИ МОБИЛЬНОГО МЕНЮ */}
         <button 
           onClick={(e) => scrollToSection(e, 'contacts')}
-          className="font-['Montserrat'] font-regular text-base bg-[#D4EC5B] text-black px-10 py-3 rounded-full hover:bg-[#b6d139] transition-colors duration-200 active:scale-95 mt-4"
+          className="font-['Montserrat'] font-light text-sm bg-[#D4EC5B] text-black px-10 py-3 rounded-full hover:bg-[#b6d139] transition-colors duration-200 active:scale-95 mt-4"
         >
           Записаться
         </button>

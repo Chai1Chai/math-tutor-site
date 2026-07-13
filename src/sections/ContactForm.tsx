@@ -5,7 +5,7 @@ import tgIcon from '../assets/images/icons/TelegramLogo.svg';
 import vkIcon from '../assets/images/icons/VKLogo.svg';
 import maxIcon from '../assets/images/icons/MAXLogo.svg';
 import phoneIcon from '../assets/images/icons/PhoneLogo.svg';
-import catContact from '../assets/images/cats/catContact.png'; // Твой котик
+import catContact from '../assets/images/cats/catContact.webp'; 
 
 export const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
@@ -163,7 +163,7 @@ export const ContactForm: React.FC = () => {
           >
             <img src={tgIcon} alt="" className="w-7 h-7" /> Телеграм
           </a>
-          
+
           <a 
             href="https://m.vk.com/antanovsky_ns" 
             target="_blank" 
@@ -172,7 +172,7 @@ export const ContactForm: React.FC = () => {
           >
             <img src={vkIcon} alt="" className="w-7 h-7" /> ВКонтакте
           </a>
-          
+
           <a 
             href="https://max.ru/u/f9LHodD0cOJx0GukcD1TlO--TbhzIN4Z8WwPPwn91X9U3bUq3Z8LY5cRMcw" 
             target="_blank" 
@@ -181,7 +181,7 @@ export const ContactForm: React.FC = () => {
           >
             <img src={maxIcon} alt="" className="w-7 h-7" /> MAX
           </a>
-          
+
           <a 
             href="tel:+79121862683" 
             className="flex items-center gap-4 font-['Unbounded'] font-black text-sm sm:text-lg text-black hover:opacity-70 transition-opacity"

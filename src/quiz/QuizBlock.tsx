@@ -7,7 +7,7 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
 // Котики для плашек выбора
-import catFight from '../assets/images/cats/cat_fight.png';
+import catFight from '../assets/images/cats/cat_fight.webp';
 
 type QuizStep = 'START' | 'PLAYING' | 'RESULT';
 

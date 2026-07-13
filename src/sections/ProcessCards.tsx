@@ -4,10 +4,10 @@ import React, { useState, useEffect } from 'react';
 import bgImage from '../assets/images/photo/background.webp';
 
 // Коты для обложек карточек
-import cat01 from '../assets/images/cats/catprocess01.png';
-import cat02 from '../assets/images/cats/catprocess02.png';
-import cat03 from '../assets/images/cats/catprocess03.png';
-import cat04 from '../assets/images/cats/catprocess04.png';
+import cat01 from '../assets/images/cats/catprocess01.webp';
+import cat02 from '../assets/images/cats/catprocess02.webp';
+import cat03 from '../assets/images/cats/catprocess03.webp';
+import cat04 from '../assets/images/cats/catprocess04.webp';
 
 // Изображения для модальных окон
 import modalImg01 from '../assets/images/photo/example01.webp';

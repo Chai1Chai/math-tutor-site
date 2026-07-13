@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Импорты ассетов
-import catAboutMe from '../assets/images/cats/catAboutMe.png';
-import kirillPhoto from '../assets/images/photo/PhotoMe.png';
+import catAboutMe from '../assets/images/cats/catAboutMe.webp';
+import kirillPhoto from '../assets/images/photo/PhotoMe.webp';
 
 export const AboutMe: React.FC = () => {
   return (
@@ -107,7 +107,7 @@ export const AboutMe: React.FC = () => {
           {/* Карточка 4: Результат ОГЭ */}
           <div className="bg-[#163060] border-5 border-[#D4EC5B] rounded-[30px] p-4 sm:p-6 flex flex-col justify-center min-h-[150px] sm:min-h-[160px] shadow-lg text-left">
             <p className="font-['Montserrat'] font-light text-sm sm:text-base lg:text-xl xl:text-xl text-white leading-relaxed">
-              Ни одной тройки на <span className="font-bold text-[#D4EC5B]">ОГЭ</span> среди моих учеников
+              Ни одной тройки на <span className="font-light text-[#D4EC5B]">ОГЭ</span> среди моих учеников
             </p>
           </div>
 
