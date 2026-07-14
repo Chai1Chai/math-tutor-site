@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { quizData } from './quizData';
 import type { Question } from './quizData'; 
 
-// Импортируем чистый katex и его стили
+// Импортуем чистый katex и его стили
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
@@ -29,6 +29,32 @@ export const QuizBlock: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [score, setScore] = useState<number>(0);
+
+  // Стейт и реф для анимации появления заголовка
+  const [isAnimate, setIsAnimate] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsAnimate(true);
+          if (sectionRef.current) observer.unobserve(sectionRef.current);
+        }
+      },
+      {
+        threshold: 0.1, // Анимация срабатывает при появлении 10% секции на экране
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
 
   const startQuiz = (type: 'OGE' | 'EGE') => {
     setSelectedType(type);
@@ -65,15 +91,34 @@ export const QuizBlock: React.FC = () => {
   };
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28 overflow-hidden select-none px-4 sm:px-8 md:px-16 lg:px-24">
+    <section 
+      id="quiz"
+      ref={sectionRef} // Привязываем реф для отслеживания скролла
+      className="relative w-full bg-white py-20 lg:py-28 overflow-hidden select-none px-4 sm:px-8 md:px-16 lg:px-24"
+    >
       <div className="absolute inset-0 z-0 bg-[#D4EC5B] transform skew-y-0 scale-x-110 h-[20%] my-auto -top-150 md:-top-80 pointer-events-none"/>
       
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center">
         
-        {/* Заголовок */}
-        <div className="w-full text-start mb-12">
-          <h2 className="font-['Unbounded'] font-black text-4xl md:text-5xl text-black uppercase tracking-tight">
-            Проверь свой уровень знания математики за 5 минут
+        {/* Анимированный Заголовок */}
+        <div className="w-full text-start mb-12 overflow-hidden">
+          <h2 className="font-['Unbounded'] font-black text-4xl md:text-5xl text-black uppercase tracking-tight leading-[1.15]">
+            <span 
+              className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+                         ${isAnimate ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-[2px]'}`}
+            >
+              Проверь свой уровень
+            </span>
+            <span 
+              className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100 text-black`}
+            >
+              <span 
+                className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
+                           ${isAnimate ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-[2px]'}`}
+              >
+                знания математики за 5 минут
+              </span>
+            </span>
           </h2>
         </div>
 
@@ -117,7 +162,6 @@ export const QuizBlock: React.FC = () => {
             <div className="font-['Montserrat'] text-lg sm:text-xl text-white mb-6 leading-relaxed">
               <p>{currentQuestion.text}</p>
               
-              {/* Исправлено: рендерим через кастомный SafeBlockMath */}
               {currentQuestion.mathFormula && (
                 <div className="my-4 py-2 bg-white/5 rounded-xl text-[#D4EC5B] overflow-x-auto text-xl text-center">
                   <SafeBlockMath math={currentQuestion.mathFormula} />
@@ -154,7 +198,6 @@ export const QuizBlock: React.FC = () => {
                       {letter}
                     </span>
                     
-                    {/* Исправлено: рендерим через кастомный SafeInlineMath */}
                     <div className="overflow-x-auto flex items-center py-1">
                       {currentQuestion.isMathOptions ? (
                         <SafeInlineMath math={option} />
@@ -206,7 +249,7 @@ export const QuizBlock: React.FC = () => {
                 onClick={resetQuiz}
                 className="w-full font-['Montserrat'] font-medium text-sm text-white/60 hover:text-white py-3 transition-colors text-center"
               >
-                Пройти заново
+                Праздновать заново
               </button>
             </div>
           </div>

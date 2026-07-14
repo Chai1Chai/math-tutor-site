@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface FaqItem {
   question: string;
@@ -32,18 +32,55 @@ export const Faq: React.FC = () => {
   // Установили значение по умолчанию null — теперь изначально все скрыто
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  // Стейт и реф для анимации появления заголовка
+  const [isAnimate, setIsAnimate] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsAnimate(true);
+          if (sectionRef.current) observer.unobserve(sectionRef.current);
+        }
+      },
+      {
+        threshold: 0.1, // Срабатывает, когда 10% секции показывается на экране
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="w-full bg-[#19315B] py-20 px-4 sm:px-8 md:px-16 lg:px-24 select-none">
+    <section 
+      id="faq"
+      ref={sectionRef} // Привязываем реф к секции для отслеживания скролла
+      className="w-full bg-[#19315B] py-20 px-4 sm:px-8 md:px-16 lg:px-24 select-none"
+    >
       <div className="w-full max-w-6xl mx-auto">
         
-        {/* Главный заголовок блока */}
-        <h2 className="font-['Unbounded'] font-black text-4xl md:text-5xl text-white uppercase tracking-tight text-start mb-16">
-          Если остались вопросы
-        </h2>
+        {/* Анимированный Главный заголовок блока */}
+        <div className="w-full text-start mb-16 overflow-hidden">
+          <h2 className="font-['Unbounded'] font-black text-4xl md:text-5xl text-white uppercase tracking-tight leading-[1.15]">
+            <span 
+              className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+                         ${isAnimate ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-[2px]'}`}
+            >
+              Если остались вопросы
+            </span>
+          </h2>
+        </div>
 
         {/* Список аккордеонов — убран max-w-5xl, теперь во всю ширину */}
         <div className="w-full flex flex-col">

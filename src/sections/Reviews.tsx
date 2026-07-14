@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Импорты ассетов
 import bgImage from '../assets/images/photo/background.webp';
@@ -26,10 +26,36 @@ const videoReviews: VideoReview[] = [
 ];
 
 export const Reviews: React.FC = () => {
+  // Стейт и реф для анимации появления заголовка
+  const [isAnimate, setIsAnimate] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   // Теперь храним весь объект отзыва, чтобы знать его ориентацию
   const [activeVideo, setActiveVideo] = useState<VideoReview | null>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsAnimate(true);
+          if (sectionRef.current) observer.unobserve(sectionRef.current);
+        }
+      },
+      {
+        threshold: 0.1, // Срабатывает, когда 10% секции заходит на экран
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
 
   const toggleAudio = () => {
     if (!audioRef.current) return;
@@ -46,7 +72,11 @@ export const Reviews: React.FC = () => {
   };
 
   return (
-    <section id="reviews" className="relative w-full bg-[#0C1931] py-15 lg:py-20 overflow-hidden select-none px-4 sm:px-8 md:px-16 lg:px-24">
+    <section 
+      id="reviews" 
+      ref={sectionRef} // Привязываем реф к секции
+      className="relative w-full bg-[#0C1931] py-15 lg:py-20 overflow-hidden select-none px-4 sm:px-8 md:px-16 lg:px-24"
+    >
       
       {/* Фон блока */}
       <div 
@@ -57,9 +87,20 @@ export const Reviews: React.FC = () => {
       {/* Основной контейнер контента */}
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         
-        {/* Заголовок */}
-        <h2 className="font-['Unbounded'] font-bold text-4xl md:text-5xl text-white uppercase tracking-tight mb-16 leading-[1.1]">
-          Отзывы и результаты <br /> учеников
+        {/* Анимированный Заголовок */}
+        <h2 className="font-['Unbounded'] font-bold text-4xl md:text-5xl text-white uppercase tracking-tight mb-16 leading-[1.1] overflow-hidden">
+          <span 
+            className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+                       ${isAnimate ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-[2px]'}`}
+          >
+            Отзывы и результаты
+          </span>
+          <span 
+            className={`block transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
+                       ${isAnimate ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-[2px]'}`}
+          >
+            учеников
+          </span>
         </h2>
 
         {/* Часть 1: Большая пробковая доска */}
@@ -107,7 +148,7 @@ export const Reviews: React.FC = () => {
           ))}
         </div>
 
-        {/* Часть 3: Контейнер для аудиоотзывов (В строку на ПК, в колонку на мобилках) */}
+        {/* Часть 3: Контейнер для аудиоотзывов */}
         <div className="flex flex-col md:flex-row gap-6 w-full mb-16">
           
           {/* Первый Аудиоотзыв */}
@@ -190,7 +231,6 @@ export const Reviews: React.FC = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-fade-in"
           onClick={() => setActiveVideo(null)}
         >
-          {/* Контейнер адаптирует ширину под activeVideo.aspect */}
           <div 
             className={`relative w-full bg-[#0C1931] border-2 border-[#D4EC5B] rounded-[32px] overflow-hidden p-1 shadow-2xl animate-in fade-in zoom-in-95 duration-200 
               ${activeVideo.aspect === 'vertical' ? 'max-w-[360px] sm:max-w-[400px]' : 'max-w-[720px] sm:max-w-[800px]'}`}
@@ -207,7 +247,6 @@ export const Reviews: React.FC = () => {
               </svg>
             </button>
 
-            {/* Плеер адаптирует соотношение сторон: aspect-[9/16] для вертикального или aspect-video (16:9) для горизонтального */}
             <video
               src={activeVideo.videoUrl}
               controls

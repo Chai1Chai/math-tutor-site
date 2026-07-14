@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
           
           {/* Блок контактов */}
           <div>
-            <h3 className="font-['Montserrat'] text-2xl sm:text-3xl font-light tracking-wide mb-6">
+            <h3 className="font-['Montserrat'] text-2xl font-light tracking-wide mb-6">
               Контакты для связи
             </h3>
             
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
                 href="https://t.me/antanovsky" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-12 h-12 bg-[#D4EC5B] rounded-[14px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
+                className="w-10 h-10 bg-[#D4EC5B] rounded-[10px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
               >
                 <img src={tgIcon} alt="Telegram" className="w-full h-full object-contain" />
               </a>
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
                 href="https://m.vk.com/antanovsky_ns" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-12 h-12 bg-[#D4EC5B] rounded-[14px] flex items-center justify-center shadow-md p-2 transform hover:bg-[#B6D139]"
+                className="w-10 h-10 bg-[#D4EC5B] rounded-[10px] flex items-center justify-center shadow-md p-2 transform hover:bg-[#B6D139]"
               >
                 <img src={vkIcon} alt="ВКонтакте" className="w-full h-full object-contain" />
               </a>
@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
                 href="https://max.ru/u/f9LHodD0cOJx0GukcD1TlO--TbhzIN4Z8WwPPwn91X9U3bUq3Z8LY5cRMcw" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="w-12 h-12 bg-[#D4EC5B] rounded-[14px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
+                className="w-10 h-10 bg-[#D4EC5B] rounded-[10px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
               >
                 <img src={maxIcon} alt="Чат" className="w-full h-full object-contain" />
               </a>
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
               {/* Телефон */}
               <a 
                 href="tel:+79121862683" 
-                className="w-12 h-12 bg-[#D4EC5B] rounded-[14px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
+                className="w-10 h-10 bg-[#D4EC5B] rounded-[10px] flex items-center justify-center shadow-md p-2.5 transform hover:bg-[#B6D139]"
               >
                 <img src={phoneIcon} alt="Телефон" className="w-full h-full object-contain" />
               </a>
@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
 
           {/* Блок Другое */}
           <div>
-            <h4 className="font-['Montserrat'] text-2xl sm:text-3xl font-light tracking-wide mb-4">
+            <h4 className="font-['Montserrat'] text-2xl font-light tracking-wide mb-4">
               Другое
             </h4>
             <a href="#" className="font-['Montserrat'] text-sm sm:text-base text-white/50 hover:text-[#D4EC5B] transition-colors duration-200">
@@ -78,11 +78,11 @@ export const Footer: React.FC = () => {
 
         {/* ПРАВАЯ ЧАСТЬ: Навигация */}
         <div className="flex flex-col md:items-end text-left md:text-right">
-          <h3 className="font-['Montserrat'] text-2xl sm:text-4xl font-light tracking-wide mb-6">
+          <h3 className="font-['Montserrat'] text-2xl font-light tracking-wide mb-6">
             Навигация
           </h3>
           <nav className="flex flex-col space-y-3">
-            <a href="#" className="font-['Montserrat'] text-sm sm:text-xl text-white/80 hover:text-[#D4EC5B] transition-colors duration-200">
+            <a href="#" className="font-['Montserrat'] text-sm text-white/80 hover:text-[#D4EC5B] transition-colors duration-200">
               Главная
             </a>
             <a href="#about" className="font-['Montserrat'] text-sm md:text-base text-white/80 hover:text-[#D4EC5B] transition-colors duration-200">
