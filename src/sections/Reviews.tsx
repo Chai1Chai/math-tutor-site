@@ -33,7 +33,11 @@ export const Reviews: React.FC = () => {
   // Теперь храним весь объект отзыва, чтобы знать его ориентацию
   const [activeVideo, setActiveVideo] = useState<VideoReview | null>(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+ const audioRef1 = useRef<HTMLAudioElement | null>(null);
+const [isPlaying1, setIsPlaying1] = useState(false);
+
+const audioRef2 = useRef<HTMLAudioElement | null>(null);
+const [isPlaying2, setIsPlaying2] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,15 +61,31 @@ export const Reviews: React.FC = () => {
     };
   }, []);
 
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-    if (isAudioPlaying) {
-      audioRef.current.pause();
+const toggleAudio1 = () => {
+  if (audioRef1.current) {
+    if (isPlaying1) {
+      audioRef1.current.pause();
     } else {
-      audioRef.current.play();
+      audioRef2.current?.pause(); // Остановить второе, если играет
+      setIsPlaying2(false);
+      audioRef1.current.play();
     }
-    setIsAudioPlaying(!isAudioPlaying);
-  };
+    setIsPlaying1(!isPlaying1);
+  }
+};
+
+const toggleAudio2 = () => {
+  if (audioRef2.current) {
+    if (isPlaying2) {
+      audioRef2.current.pause();
+    } else {
+      audioRef1.current?.pause(); // Остановить первое, если играет
+      setIsPlaying1(false);
+      audioRef2.current.play();
+    }
+    setIsPlaying2(!isPlaying2);
+  }
+};
 
   const handleAudioEnded = () => {
     setIsAudioPlaying(false);
@@ -148,62 +168,53 @@ export const Reviews: React.FC = () => {
           ))}
         </div>
 
-        {/* Часть 3: Контейнер для аудиоотзывов */}
-        <div className="flex flex-col md:flex-row gap-6 w-full mb-16">
-          
-          {/* Первый Аудиоотзыв */}
-          <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
-            <audio ref={audioRef} src={Lesha} onEnded={handleAudioEnded} />
-            
-            <button
-              type="button"
-              onClick={toggleAudio}
-              className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
-            >
-              {isAudioPlaying ? (
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-              ) : (
-                <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              )}
-            </button>
+<div className="flex flex-col md:flex-row gap-6 w-full mb-16">
+  
+  {/* Первый Аудиоотзыв */}
+  <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+    <audio ref={audioRef1} src={Lesha} onEnded={() => setIsPlaying1(false)} />
+    
+    <button
+      type="button"
+      onClick={toggleAudio1}
+      className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
+    >
+      {isPlaying1 ? (
+        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      ) : (
+        <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      )}
+    </button>
 
-            <div className="flex flex-col text-center sm:text-left">
-              <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 88 баллов</h4>
-              <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Леша занимался у Кирилла всего один год. История о том, как готовиться к самому сложному экзамену без лишнего напряга и забрать свои заветные баллы.</p>
-            </div>
+    <div className="flex flex-col text-center sm:text-left">
+      <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 88 баллов</h4>
+      <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Леша занимался у Кирилла всего один год. История о том, как готовиться к самому сложному экзамену без лишнего напряга и забрать свои заветные баллы.</p>
+    </div>
+  </div>
 
-            <div className="hidden sm:block ml-auto text-[#D4EC5B]/40">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
-            </div>
-          </div>
+  {/* Второй Аудиоотзыв */}
+  <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+    <audio ref={audioRef2} src={Nikita} onEnded={() => setIsPlaying2(false)} />
+    
+    <button
+      type="button"
+      onClick={toggleAudio2}
+      className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
+    >
+      {isPlaying2 ? (
+        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      ) : (
+        <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      )}
+    </button>
 
-          {/* Второй Аудиоотзыв */}
-          <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
-            <audio ref={audioRef} src={Nikita} onEnded={handleAudioEnded} />
-            
-            <button
-              type="button"
-              onClick={toggleAudio}
-              className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
-            >
-              {isAudioPlaying ? (
-                <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-              ) : (
-                <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              )}
-            </button>
+    <div className="flex flex-col text-center sm:text-left">
+      <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 86 баллов</h4>
+      <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кириллом. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
+    </div>
+  </div>
 
-            <div className="flex flex-col text-center sm:text-left">
-              <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 86 баллов</h4>
-              <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кириллом. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
-            </div>
-
-            <div className="hidden sm:block ml-auto text-[#D4EC5B]/40">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/></svg>
-            </div>
-          </div>
-
-        </div>
+</div>
 
         {/* Часть 4: Два изображения с результатами */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 w-full">
