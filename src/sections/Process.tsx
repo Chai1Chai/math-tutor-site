@@ -52,11 +52,7 @@ export const Process: React.FC = () => {
     };
   }, []);
 
-  const listItems = [
-    "После каждого занятия остается запись урока",
-    "Вся теория и домашние задания собраны в одном месте",
-    "Ежемесячный мониторинг результатов пробников"
-  ];
+
 
   return (
     <section 
@@ -110,38 +106,31 @@ export const Process: React.FC = () => {
 
         {/* Список ключевых особенностей — ТЕПЕРЬ СВОЙ РЕФ И СВОЙ СТЕЙТ animateList */}
         <ul 
-          ref={listRef}
-          className="flex flex-col gap-2 max-w-3xl font-['Montserrat'] font-bold text-base md:text-xl text-black leading-relaxed"
+          ref={listRef} // Обсервер следит за этим списком
+          className="grid md:grid-cols-3 gap-6 max-w-6xl font-['Montserrat']"
         >
-          {listItems.map((text, index) => (
-            <li key={index} className="flex items-start gap-2 overflow-hidden py-0.5">
-              <span 
-                className={`flex-shrink-0 transition-opacity duration-500
-                           ${animateList ? 'opacity-100' : 'opacity-0'}`}
-                style={{ transitionDelay: `${200 + index * 400}ms` }}
-              >
-                *
-              </span>
-              
-              <span 
-                className={`block transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-                           ${animateList ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'}`}
-                style={{ transitionDelay: `${200 + index * 400}ms` }}
-              >
-                {text}
-              </span>
+          {[
+            { title: "Запись уроков", desc: "После каждого занятия остается запись урока" },
+            { title: "Всё в одном месте", desc: "Теория и ДЗ собраны в удобном хабе" },
+            { title: "Мониторинг", desc: "Ежемесячный анализ пробников" }
+          ].map((item, index) => (
+            <li 
+              key={index} 
+              className={`bg-white border-2 border-[#163060] p-6 rounded-3xl shadow-[8px_8px_0px_0px_rgba(22,48,96,0.5)] 
+                          transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+                          ${animateList ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              // Каждая карточка получает задержку на 200мс больше предыдущей
+              style={{ transitionDelay: `${200 + index * 200}ms` }}
+            >
+              <div className="w-10 h-10 bg-[#163060] text-white rounded-full flex items-center justify-center mb-4 font-bold text-lg">
+                {index + 1}
+              </div>
+              <h4 className="font-bold text-lg mb-2 text-black">{item.title}</h4>
+              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
             </li>
           ))}
         </ul>
         
-        {/* 3. Кот в очках */}
-        <div className="absolute -bottom-16 right-0 lg:right-0 z-20 w-[30%] max-w-[320px] sm:max-w-[400px] md:max-w-[300px] pointer-events-none">
-          <img 
-            src={coolCat} 
-            alt="Кот в очках" 
-            className="w-full h-auto block object-contain object-bottom select-none"
-          />
-        </div>
 
       </div>
 
