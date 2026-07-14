@@ -1,5 +1,5 @@
 import logo from '../assets/images/icons/LOGO.svg';
-import bg from '../assets/images/photo/Frame 8.png';
+import bg from '../assets/images/photo/Frame 8.webp';
 import React, { useState } from 'react';
 
 interface HeaderProps {

@@ -6,7 +6,6 @@ import miroIcon from '../assets/images/icons/MiroLogo.svg';
 import telemostIcon from '../assets/images/icons/YandexTelemostLogo.svg';
 import holstIcon from '../assets/images/icons/HolstLogo.svg';
 
-import coolCat from '../assets/images/cats/ProcessMainCat.webp';
 
 export const Process: React.FC = () => {
   // Раздельные стейты для анимации заголовка и списка
@@ -111,8 +110,8 @@ export const Process: React.FC = () => {
         >
           {[
             { title: "Запись уроков", desc: "После каждого занятия остается запись урока" },
-            { title: "Всё в одном месте", desc: "Теория и ДЗ собраны в удобном хабе" },
-            { title: "Мониторинг", desc: "Ежемесячный анализ пробников" }
+            { title: "Всё в одном месте", desc: "Вся теория и домашние задания собраны в одном месте" },
+            { title: "Мониторинг", desc: "Ежемесячный мониторинг результатов пробников" }
           ].map((item, index) => (
             <li 
               key={index} 

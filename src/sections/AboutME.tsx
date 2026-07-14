@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 
 // Импорты ассетов
 import catAboutMe from '../assets/images/cats/catAboutMe.webp';
-import kirillPhoto from '../assets/images/photo/PhotoMe.webp';
 
 export const AboutMe: React.FC = () => {
   const [isAnimate, setIsAnimate] = useState(false);
@@ -89,12 +88,6 @@ export const AboutMe: React.FC = () => {
         {/* ================= МОБИЛЬНАЯ ВЕРСИЯ (до md) ================= */}
         <div className="relative w-full block md:hidden bg-[#163060] border-5 border-[#D4EC5B] rounded-[30px] shadow-xl overflow-hidden mb-6">
           <div className="relative w-full h-[400px] sm:h-[500px]">
-            <img 
-              src={kirillPhoto} 
-              alt="Репетитор Кирилл" 
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[280px] sm:w-[340px] h-auto object-contain object-bottom select-none pointer-events-none z-10"
-            />
-
             {/* Нижняя плашка */}
             <div className="absolute bottom-4 left-4 right-4 bg-[#163060] border-3 border-[#D4EC5B] rounded-[20px] p-4 text-left z-20">
               <p className="font-['Montserrat'] text-white text-base sm:text-lg leading-snug">
