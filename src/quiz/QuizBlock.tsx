@@ -249,7 +249,7 @@ export const QuizBlock: React.FC = () => {
                 onClick={resetQuiz}
                 className="w-full font-['Montserrat'] font-medium text-sm text-white/60 hover:text-white py-3 transition-colors text-center"
               >
-                Праздновать заново
+                Пройти заново
               </button>
             </div>
           </div>
