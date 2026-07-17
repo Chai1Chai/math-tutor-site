@@ -3,15 +3,15 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-Light.woff2') format('truetype');
+  src: url('./assets/fonts/Montserrat-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-Regular.woff2') format('truetype');
+  src: url('./assets/fonts/Montserrat-Regular.woff2') format('woff2');
   font-weight: 400; 
   font-style: normal;
   font-display: swap;
@@ -19,16 +19,16 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('./assets/fonts/Montserrat-Bold.woff2') format('truetype');
+  src: url('./assets/fonts/Montserrat-Bold.woff2') format('woff2');
   font-weight: 700; 
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 
 @font-face {
   font-family: 'Unbounded';
-  src: url('./assets/fonts/Unbounded-Medium.woff2') format('truetype');
+  src: url('./assets/fonts/Unbounded-Medium.woff2') format('woff2');
   font-weight: 500; 
   font-style: normal;
   font-display: swap;
@@ -37,20 +37,18 @@
 
 @font-face {
   font-family: 'Unbounded';
-  src: url('./assets/fonts/Unbounded-Bold.woff2') format('truetype');
+  src: url('./assets/fonts/Unbounded-Bold.woff2') format('woff2');
   font-weight: 700; 
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
-
-
-@font-face {
-  font-family: 'Stylo_SHA_0';
-  src: url('./assets/fonts/Stylo_SHA_0.woff2') format('opentype');
-  font-weight: 700; 
-  font-style: normal;
-  font-display: swap;
+body {
+  /* Мы говорим браузеру: "попробуй Montserrat, а если его нет — возьми похожий по ширине системный шрифт" */
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+  
+  /* Это самое важное: */
+  text-size-adjust: 100%;
 }
 
 /* Стилизация скроллбара для контейнера карточки */

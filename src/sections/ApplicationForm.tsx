@@ -142,9 +142,12 @@ export const ApplicationForm: React.FC<ApplicationFormProps> = ({ isModal = fals
           className={`cursor-pointer w-4 h-4 flex-shrink-0 ${isModal ? 'accent-[#D4EC5B]' : 'accent-[#19315B]'}`}
           required
         />
-        <span className={`font-['Montserrat'] text-[10px] sm:text-xs leading-tight ${isModal ? 'text-white/70' : 'text-[#19315B]'}`}>
-          Даю согласие на обработку персональных данных
-        </span>
+      <span className={`font-['Montserrat'] text-[10px] sm:text-xs leading-tight ${isModal ? 'text-white/70' : 'text-[#19315B]'}`}>
+        Даю
+        <a href="/ConsentProcessingPD.html" target="_blank" className="underline ml-1 hover:text-blue-500"> Cогласие на обработку своих персональных данных</a> 
+        в соответствии с
+        <a href="/PrivacyPolicy.html" target="_blank" className="underline ml-1 hover:text-blue-500">Политикой конфиденциальности</a>
+      </span>
       </label>
       
       {status === 'error' && <p className="text-red-500 text-sm">Ошибка при отправке. Попробуйте еще раз.</p>}

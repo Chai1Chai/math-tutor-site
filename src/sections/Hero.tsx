@@ -46,6 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
         <img 
           src={kirillPhoto} 
           alt="Кирилл — преподаватель математики" 
+          fetchPriority="high"
           className="absolute z-10 h-auto object-contain pointer-events-none select-none bottom-5 right-[-55px] w-[82vw] max-w-[340px] sm:bottom-0 sm:right-[-20px] sm:w-[60vw] sm:max-w-[400px] md:-bottom-30 md:right-0 md:w-[60vw] md:max-w-[400px] lg:-bottom-20 lg:right-0 lg:w-[42vw] lg:max-w-[480px]"
         />
 

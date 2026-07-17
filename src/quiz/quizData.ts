@@ -21,7 +21,7 @@ export const quizData: Record<'OGE' | 'EGE', Quiz> = {
     questions: [
       { id: 1, text: 'Найдите значение выражения:', mathFormula: '3^3 - \\sqrt {64}', options: ['18', '19', '20', '21'], correctAnswer: 1 },
       { id: 2, text: 'После повышения цены на 15% товар стал стоить 1380 рублей. Какова была первоначальная цена?', options: ['1180 руб.', '1190 руб.', '1200 руб.', '1210 руб.'], correctAnswer: 2 },
-      { id: 3, text: 'Решите уравнение:', mathFormula: '4(2x - 3) = 5x + 9', options: ['2', '2,5', '3', '3,5'], correctAnswer: 2 },
+      { id: 3, text: 'Решите уравнение:', mathFormula: '4(x - 3) = 2x + 2', options: ['5', '6', '7', '8'], correctAnswer: 3 },
       { id: 4, text: 'Решите неравенство:', mathFormula: '7 - 2x \\le 3', options: ['x \\ge 2', 'x > 2', 'x \\le 2', 'x < 2'], isMathOptions: true, correctAnswer: 0 },
       { id: 5, text: 'Первый член арифметической прогрессии равен 8, разность равна 5. Найдите шестой член.', options: ['28', '30', '31', '33'], correctAnswer: 3 },
       { id: 6, text: 'Один из острых углов прямоугольного треугольника равен 38°. Чему равен второй острый угол?', options: ['50°', '51°', '52°', '53°'], correctAnswer: 2 },
@@ -37,7 +37,7 @@ export const quizData: Record<'OGE' | 'EGE', Quiz> = {
     questions: [
       { id: 1, text: 'Вычислите значение выражения:', mathFormula: '5^2 - 2^4 + \\sqrt{49}', options: ['15', '16', '17', '18'], correctAnswer: 1 },
       { id: 2, text: 'Решите уравнение:', mathFormula: '\\log_3 x = 4', options: ['27', '64', '81', '243'], correctAnswer: 2 },
-      { id: 3, text: 'Решите уравнение:', mathFormula: '2^{x+1} = 64', options: ['4', '5', '6', '7'], correctAnswer: 1 },
+      { id: 3, text: 'Решите уравнение:', mathFormula: 'sqrt{x+5} = x-1', options: ['1', '2', '3', '4'], correctAnswer: 4 },
       { id: 4, text: 'Вычислите значение выражения:', mathFormula: '\\sin 0 + \\cos \\pi', options: ['-2', '-1', '0', '1'], correctAnswer: 1 },
       { id: 5, text: 'Найдите производную функции:', mathFormula: 'y = x^4 - 6x^2 + 7', options: ['4x^3 - 6x', '4x^3 - 12x', '4x^4 - 12x', '3x^3 - 12x'], isMathOptions: true, correctAnswer: 1 },
       { id: 6, text: 'В равнобедренном треугольнике боковые стороны равны 13 см, основание — 10 см. Найдите высоту, проведённую к основанию.', options: ['10', '11', '12', '13'], correctAnswer: 2 },

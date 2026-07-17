@@ -168,53 +168,53 @@ const toggleAudio2 = () => {
           ))}
         </div>
 
-<div className="flex flex-col md:flex-row gap-6 w-full mb-16">
-  
-  {/* Первый Аудиоотзыв */}
-  <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
-    <audio ref={audioRef1} src={Lesha} onEnded={() => setIsPlaying1(false)} />
-    
-    <button
-      type="button"
-      onClick={toggleAudio1}
-      className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
-    >
-      {isPlaying1 ? (
-        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      ) : (
-        <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      )}
-    </button>
+      <div className="flex flex-col md:flex-row gap-6 w-full mb-16">
 
-    <div className="flex flex-col text-center sm:text-left">
-      <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 88 баллов</h4>
-      <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Леша занимался у Кирилла всего один год. История о том, как готовиться к самому сложному экзамену без лишнего напряга и забрать свои заветные баллы.</p>
-    </div>
-  </div>
+        {/* Первый Аудиоотзыв */}
+        <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+          <audio ref={audioRef1} src={Lesha} onEnded={() => setIsPlaying1(false)} />
 
-  {/* Второй Аудиоотзыв */}
-  <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
-    <audio ref={audioRef2} src={Nikita} onEnded={() => setIsPlaying2(false)} />
-    
-    <button
-      type="button"
-      onClick={toggleAudio2}
-      className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
-    >
-      {isPlaying2 ? (
-        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      ) : (
-        <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      )}
-    </button>
+          <button
+            type="button"
+            onClick={toggleAudio1}
+            className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
+          >
+            {isPlaying1 ? (
+              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            ) : (
+              <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            )}
+          </button>
+          
+          <div className="flex flex-col text-center sm:text-left">
+            <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 88 баллов</h4>
+            <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Леша занимался у Кирилла всего один год. История о том, как готовиться к самому сложному экзамену без лишнего напряга и забрать свои заветные баллы.</p>
+          </div>
+        </div>
+          
+        {/* Второй Аудиоотзыв */}
+        <div className="w-full md:flex-1 bg-[#13223f] border-2 border-[#D4EC5B]/30 rounded-[24px] p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl">
+          <audio ref={audioRef2} src={Nikita} onEnded={() => setIsPlaying2(false)} />
+          
+          <button
+            type="button"
+            onClick={toggleAudio2}
+            className="flex-shrink-0 w-16 h-16 rounded-full bg-[#D4EC5B] flex items-center justify-center text-black shadow-md transform transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#D4EC5B]/40"
+          >
+            {isPlaying2 ? (
+              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            ) : (
+              <svg className="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            )}
+          </button>
+          
+          <div className="flex flex-col text-center sm:text-left">
+            <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 86 баллов</h4>
+            <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кириллом. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
+          </div>
+        </div>
 
-    <div className="flex flex-col text-center sm:text-left">
-      <h4 className="font-['Montserrat'] font-bold text-white text-lg sm:text-xl leading-snug">Сдал ЕГЭ по профилю на 86 баллов</h4>
-      <p className="font-['Montserrat'] font-light text-sm text-white/70 mt-1">Никита готовился к профильной математике с Кириллом. Легкая атмосфера, мощные пробники, полезные дз и результат, о котором мечтал!</p>
-    </div>
-  </div>
-
-</div>
+      </div>
 
         {/* Часть 4: Два изображения с результатами */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 w-full">
