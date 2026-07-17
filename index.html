@@ -12,6 +12,54 @@
     <title>Antanovskiy Math Tutor — Подготовка к ОГЭ и ЕГЭ<</title>
   </head>
   <body>
+    <style>
+    #preloader {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: #0C1931;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column; /* Размещаем элементы друг под другом */
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s ease;
+      }
+    
+      .loader-text {
+        color: white;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+    
+      .progress-container {
+        width: 200px; /* Ширина полоски */
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2); /* Белая полупрозрачная линия */
+        border-radius: 2px;
+        overflow: hidden;
+      }
+    
+      .progress-bar {
+        width: 0%; /* Начинаем с 0 */
+        height: 100%;
+        background: #D4EC5B; /* Твой лаймовый цвет */
+        animation: fill 2s ease-in-out forwards; /* Анимация заполнения */
+      }
+    
+      @keyframes fill {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+</style>
+
+    <div id="preloader">
+      <!-- Здесь можно поставить спиннер или логотип -->
+      <div class="loader-text">ЗАГРУЗКА...</div>
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
