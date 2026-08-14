@@ -8,6 +8,7 @@ import Denis from '../assets/video/Denis_4.mp4';
 import Ksenia from '../assets/video/Ksenia_5.mp4'; 
 import Lesha from '../assets/video/Lesha_88.mp3';
 import Nikita from '../assets/video/Nikita_86.mp3';
+import Ksenia02 from '../assets/video/Ksenia02.mp4'
 import result1 from '../assets/images/photo/result_maria.webp'; // Текстовые отзывы как изображения
 import result2 from '../assets/images/photo/result_aleksey.webp';
 
@@ -21,8 +22,9 @@ interface VideoReview {
 
 const videoReviews: VideoReview[] = [
   { id: 1, name: "Дарина", videoUrl: Darina, aspect: 'horizontal' },
-  { id: 2, name: "Денис", videoUrl: Denis, aspect: 'vertical' },
-  { id: 3, name: "Ксения ", videoUrl: Ksenia, aspect: 'vertical' },
+  { id: 2, name: "Ксения ", videoUrl: Ksenia02, aspect: 'vertical' },
+  { id: 3, name: "Денис", videoUrl: Denis, aspect: 'vertical' },
+  { id: 4, name: "Ксения ", videoUrl: Ksenia, aspect: 'vertical' },
 ];
 
 export const Reviews: React.FC = () => {

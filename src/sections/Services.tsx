@@ -9,6 +9,7 @@ import catUp from '../assets/images/cats/cat_up.webp';
 interface ServiceCardProps {
   title: string;
   groupPrice?: string;
+  couplePrice?: string;
   indivPrice: string;
   catImg: string;
   catAlt: string;
@@ -20,6 +21,7 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,
   groupPrice,
+  couplePrice,
   indivPrice,
   catImg,
   catAlt,
@@ -52,6 +54,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               <p className="font-['Unbounded'] text-[#D4EC5B] text-xl md:text-3xl font-black tracking-tight mt-1">{indivPrice}</p>
             </div>
           )}
+          {couplePrice && (
+            <div>
+              <p className="font-['Montserrat'] text-white text-xs sm:text-xl font-light"> Парные занятия:
+              </p>
+              <p className="font-['Unbounded'] text-[#D4EC5B] text-xl md:text-3xl font-black tracking-tight mt-0.5">
+      {couplePrice}
+              </p>
+            </div>
+          )}
 
           {!description && (
             <div>
@@ -60,8 +71,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
           )}
         </div>
+        
       </div>
-
+      
       {/* Кнопка действия */}
       <div className="z-10 pt-6 sm:pt-20 mt-auto">
           <button 
@@ -131,11 +143,11 @@ export const Services: React.FC<ServicesProps> = ({ onOpenModal }) => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full auto-rows-fr">
-          <ServiceCard title="ОГЭ" groupPrice="1500 р/час" indivPrice="2500 р/час" catImg={catOge} catAlt="Кот в очках для ОГЭ" catClass="w-[45%] max-w-[190px] md:max-w-[220px] translate-y-[15px] right-2" onOpenModal={onOpenModal} />
-          <ServiceCard title="ЕГЭ ПРОФИЛЬ" groupPrice="1500 р/час" indivPrice="2500 р/час" catImg={catEgeProfile} catAlt="Кот-выпускник для профильного ЕГЭ" catClass="w-[50%] max-w-[210px] md:max-w-[240px] translate-y-[5px] right-1" onOpenModal={onOpenModal} />
-          <ServiceCard title="ЕГЭ БАЗА" indivPrice="2500 р/час" catImg={catEgeBase} catAlt="Кот с калькулятором для базового ЕГЭ" catClass="w-[40%] max-w-[180px] md:max-w-[210px] translate-y-[10px] right-4" onOpenModal={onOpenModal} />
-          <ServiceCard title="Повышение успеваемости" description="Индивидуально 5-8 класс:" indivPrice="2500 р/час" catImg={catUp} catAlt="Кот тянет лапу вверх" catClass="w-[60%] max-w-[500px] md:max-w-[250px] translate-y-[2px] right-0" onOpenModal={onOpenModal} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full">
+          <ServiceCard title="ОГЭ" groupPrice="1200 р/час" couplePrice="1500 р/час" indivPrice="2500 р/час" catImg={catOge} catAlt="Кот в очках для ОГЭ" catClass="w-[45%] max-w-[190px] md:max-w-[220px] translate-y-[15px] right-2" onOpenModal={onOpenModal} />
+          <ServiceCard title="ЕГЭ ПРОФИЛЬ" groupPrice="1200 р/час" couplePrice="1500 р/час" indivPrice="2500 р/час" catImg={catEgeProfile} catAlt="Кот-выпускник для профильного ЕГЭ" catClass="w-[50%] max-w-[210px] md:max-w-[240px] translate-y-[5px] right-1" onOpenModal={onOpenModal} />
+          <ServiceCard title="ЕГЭ БАЗА" indivPrice="2500 р/час" catImg={catEgeBase} catAlt="Кот с калькулятором для базового ЕГЭ" catClass="w-[40%] max-w-[130px] md:max-w-[200px] translate-y-[10px] right-4" onOpenModal={onOpenModal} />
+          <ServiceCard title="Повышение успеваемости" description="Индивидуально 5-8 класс:" indivPrice="2500 р/час" catImg={catUp} catAlt="Кот тянет лапу вверх" catClass="w-[60%] max-w-[160px] md:max-w-[250px] translate-y-[2px] right-0" onOpenModal={onOpenModal} />
         </div>
       </div>
     </section>
