@@ -4,6 +4,7 @@ import { ProcessCards } from "./sections/ProcessCards";
 import { Process } from "./sections/Process";
 import { Reviews } from "./sections/Reviews";
 import { AboutMe } from "./sections/AboutME";
+import {VideoSection} from "./sections/VideoSection"
 import { Services } from "./sections/Services";
 import { QuizBlock } from "./quiz/QuizBlock";
 import { Faq } from "./sections/Faq";
@@ -23,6 +24,7 @@ function App() {
       <Header onOpenModal={() => setIsModalOpen(true)} />      
       <Hero onOpenModal={() => setIsModalOpen(true)}/>
       <AboutMe />
+      <VideoSection />
       <Process />
       <ProcessCards />
       <Services onOpenModal={() => setIsModalOpen(true)}/>

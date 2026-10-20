@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// Импорты ассетов
+
 import catAboutMe from '../assets/images/cats/catAboutMe.webp';
+import Aboutme_video from '../assets/video/Antanovskiy_promo_v5.mp4';
 
 export const AboutMe: React.FC = () => {
   const [isAnimate, setIsAnimate] = useState(false);
@@ -87,14 +88,19 @@ export const AboutMe: React.FC = () => {
 
         {/* ================= МОБИЛЬНАЯ ВЕРСИЯ (до md) ================= */}
         <div className="relative w-full block md:hidden bg-[#163060] border-5 border-[#D4EC5B] rounded-[30px] shadow-xl overflow-hidden mb-6">
-          <div className="relative w-full h-[400px] sm:h-[500px]">
-            {/* Нижняя плашка */}
-            <div className="absolute bottom-4 left-4 right-4 bg-[#163060] border-3 border-[#D4EC5B] rounded-[20px] p-4 text-left z-20">
-              <p className="font-['Montserrat'] text-white text-base sm:text-lg leading-snug">
-                Я — <span className="font-['Unbounded'] font-bold text-[#D4EC5B]">Кирилл</span>, <br />
-                репетитор по математике!
-              </p>
-            </div>
+          {/* Контейнер для центрирования видео по горизонтали и вертикали */}
+          <div className="relative w-full h-[400px] sm:h-[500px] flex items-center justify-center bg-[#163060]">
+            
+            {/* Вертикальное видео по центру */}
+            <video 
+              src={Aboutme_video} 
+              controls 
+              playsInline // Важно для iOS, чтобы видео не разворачивалось на весь экран
+              className="w-full h-full object-contai"
+            >
+              Ваш браузер не поддерживает видео.
+            </video>
+
           </div>
         </div>
         
