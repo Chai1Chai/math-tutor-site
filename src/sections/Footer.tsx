@@ -69,8 +69,12 @@ export const Footer: React.FC = () => {
             <h4 className="font-['Montserrat'] text-2xl font-light tracking-wide mb-4">
               Другое
             </h4>
-            <a href="#" className="font-['Montserrat'] text-sm sm:text-base text-white/50 hover:text-[#D4EC5B] transition-colors duration-200">
+            <a href="/PrivacyPolicy.html"  className="font-['Montserrat'] text-sm sm:text-base text-white/50 hover:text-[#D4EC5B] transition-colors duration-200">
               Политика конфиденциальности
+            </a>
+            <br />
+            <a href="/ConsentProcessingPD.html" className="font-['Montserrat'] text-sm sm:text-base text-white/50 hover:text-[#D4EC5B] transition-colors duration-200">
+              Согласие на обработку персональных данных
             </a>
           </div>
 
